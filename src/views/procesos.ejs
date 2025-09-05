@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Procesos</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">Inicio/</a>
+      <a href="/productos">Productos</a>
+      <a href="/usuarios">Usuarios</a>
+      <a href="/procesos">Procesos</a>
+    </nav>
+  </header>
+
+  <h1>Procesos</h1>
+
+  <main>
+    <section class="cards">
+      <% procesos.forEach(p => { %>
+        <article class="card">
+          <div class="card-media">
+            <img src="<%= p.imagen %>" alt="<%= p.titulo %>">
+          </div>
+          <div class="card-body">
+            <h2><%= p.titulo %></h2>
+            <p><%= p.descripcion %></p>
+          </div>
+          <div class="card-footer">
+            <span class="badge <%= p.estado === 'Completado' ? 'ok' : (p.estado === 'En curso' ? 'run' : 'pending') %>">
+              <%= p.estado %>
+            </span>
+          </div>
+        </article>
+      <% }) %>
+    </section>
+  </main>
+</body>
+</html>
